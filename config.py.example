@@ -1,0 +1,8 @@
+db_config = {
+    'user': 'userid',
+    'password': 'password',
+    'host': '127.0.0.1',
+    'database': 'db',
+    'port': '3306',
+    'autocommit': True
+}
