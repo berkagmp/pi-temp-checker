@@ -2,7 +2,8 @@
 ```
 sudo cp ./temp.sh /bin/temp
 ```
-# DB Table
+
+# MySQL Table
 ```
 CREATE TABLE `temp` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -12,6 +13,13 @@ CREATE TABLE `temp` (
   PRIMARY KEY (`id`)
 )
 ```
+
+# MongoDB
+## pymongo for MongoDB 2.4
+```
+pip3 install pymongo==3.4.0
+```
+
 # Crontab
 
 ## Every 5 minites 
