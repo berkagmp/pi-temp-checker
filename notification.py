@@ -13,13 +13,11 @@ HOST = config.EMAIL_HOST
 PORT = config.EMAIL_PORT
 
 
-def send_email(body):
-    message = 'TEST Email'
-
+def send_email(subject, message):
     # set up the SMTP server
     s = smtplib.SMTP(host=HOST, port=PORT)
     s.starttls()
-    s.login(ADDRESS, config.PASSWORD)
+    s.login(ADDRESS, PASSWORD)
 
     msg = MIMEMultipart()       # create a message
 
@@ -32,7 +30,7 @@ def send_email(body):
     # setup the parameters of the message
     msg['From'] = ADDRESS
     msg['To'] = ADDRESS
-    msg['Subject'] = body
+    msg['Subject'] = subject
 
     # add in the message body
     msg.attach(MIMEText(message, 'plain'))
