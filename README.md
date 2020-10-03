@@ -20,6 +20,12 @@ CREATE TABLE `temp` (
 pip3 install pymongo==3.4.0
 ```
 
+# DHT11 Compile
+```
+gcc -o dht dht.c -lwiringPi -lwiringPiDev
+sudo cp ./dht /bin/dht
+```
+
 # Crontab
 
 ## Every 5 minites 
