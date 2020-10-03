@@ -56,4 +56,4 @@ temp = subprocess.check_output(['temp'])
 array = str(temp).split('/')
 
 insertMySQL(array)
-insertMongoDB(array)
+# insertMongoDB(array)
