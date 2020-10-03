@@ -46,7 +46,7 @@ def readDHT():
     recipient = ADDRESS
     subject = 'SOAP ROOM ALERT'
     body = 'Temperature = ' + \
-        str(temperature) + " C / " + 'Humidity = ' + str(MAX_HUMIDITY) + ' %'
+        str(temperature) + " C / " + 'Humidity = ' + str(humidity) + ' %'
 
     notification.insert_email(recipient, None, subject, body)
 
