@@ -1,6 +1,11 @@
 from mysql.connector import MySQLConnection
 
 import config
+import sentry_sdk
+sentry_sdk.init(
+    "https://63fb277c6fad4fefb7f0aa01eea20850@o456682.ingest.sentry.io/5450003",
+    traces_sample_rate=1.0
+)
 
 
 def insert_email(recipient, cc, subject, body):

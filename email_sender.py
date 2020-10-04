@@ -9,6 +9,12 @@ from datetime import datetime
 from mysql.connector import MySQLConnection
 import config
 
+import sentry_sdk
+sentry_sdk.init(
+    "https://63fb277c6fad4fefb7f0aa01eea20850@o456682.ingest.sentry.io/5450003",
+    traces_sample_rate=1.0
+)
+
 ADDRESS = config.EMAIL_ADDRESS
 PASSWORD = config.EMAIL_PASSWORD
 HOST = config.EMAIL_HOST
@@ -87,7 +93,7 @@ def send_email(email):
     s.quit()
 
 
-def main():
+def email_sender():
   email_data = get_email_queue()
 
   for email in email_data:
@@ -100,4 +106,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    email_sender()

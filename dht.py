@@ -4,6 +4,12 @@ from mysql.connector import MySQLConnection
 import config
 import notification
 
+import sentry_sdk
+sentry_sdk.init(
+    "https://63fb277c6fad4fefb7f0aa01eea20850@o456682.ingest.sentry.io/5450003",
+    traces_sample_rate=1.0
+)
+
 MAX_TEMPERATURE = config.MAX_TEMPERATURE
 MAX_HUMIDITY = config.MAX_HUMIDITY
 
@@ -30,7 +36,7 @@ def insertMySQL(temp, humidity):
       cursor.close()
 
 
-def main():
+def dht():
   # Read temperature, humidity from DHT11
   data = subprocess.check_output(['dht']).decode()
   array = str(data).split('/')
@@ -52,4 +58,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    dht()
