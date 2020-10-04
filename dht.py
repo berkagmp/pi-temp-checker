@@ -30,7 +30,7 @@ def insertMySQL(temp, humidity):
       cursor.close()
 
 
-def readDHT():
+def main():
   # Read temperature, humidity from DHT11
   data = subprocess.check_output(['dht']).decode()
   array = str(data).split('/')
@@ -44,11 +44,12 @@ def readDHT():
   # Notification
   if(float(temperature) > MAX_TEMPERATURE or float(humidity) > MAX_HUMIDITY):
     recipient = ADDRESS
-    subject = 'SOAP ROOM ALERT'
+    subject = 'Soap Room Alert'
     body = 'Temperature = ' + \
         str(temperature) + " C / " + 'Humidity = ' + str(humidity) + ' %'
 
     notification.insert_email(recipient, None, subject, body)
 
 
-readDHT()
+if __name__ == "__main__":
+    main()
