@@ -13,6 +13,26 @@ CREATE TABLE `temp` (
   PRIMARY KEY (`id`)
 )
 ```
+```
+CREATE TABLE `soap_room` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `temp` double(8,2) NOT NULL,
+  `humidity` double(8,2) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`)
+);
+```
+```
+CREATE TABLE `email_queue` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `recipient` varchar(100) NOT NULL,
+  `cc` varchar(100) DEFAULT NULL,
+  `subject` varchar(200) NOT NULL,
+  `body` varchar(500) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`)
+);
+```
 
 # MongoDB
 ## pymongo for MongoDB 2.4
